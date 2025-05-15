@@ -35,6 +35,22 @@ set(SOURCE_FILES ${SRC})
 set(HEADER ${INCLUDE})
 
 
+# This conditional block checks if the current system is macOS (Darwin is the core Unix-based operating system
+# that macOS is built upon). When this condition is true, the following code block will be executed.
+# It sets up macOS-specific paths, libraries, and build configurations needed to compile the C++ code
+# on macOS systems. This includes setting paths to frameworks like onnxruntime and webrtc_audio_processing,
+# finding macOS-specific libraries (CoreFoundation, CoreAudio, etc.), and configuring the build target
+# specifically for macOS environments.
+# To build on macOS:
+# 1. Make sure you have CMake installed (brew install cmake)
+# 2. Make sure you have libsndfile installed (brew install libsndfile)
+#    libsndfile is a C library for reading and writing files containing sampled audio data.
+#    You can check if it's installed by running: brew list libsndfile || echo "Not installed"
+#    Or check the version with: brew info libsndfile
+# 3. Create a build directory: mkdir build && cd build
+# 4. Run CMake: cmake ..
+# 5. Build the project: make
+# 6. The executable will be available in the build directory
 if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 
     set(ONNX_RUNTIME_LIBRARY "${PROJECT_SOURCE_DIR}/Frameworks/onnxruntime.xcframework/macos-arm64_x86_64/onnxruntime.framework/onnxruntime")
