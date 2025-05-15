@@ -1,3 +1,20 @@
+# CMake configuration for RealTimeCutVADCXXLibrary
+# 
+# This CMakeLists.txt file appears to be primarily configured for macOS.
+# The comment at the bottom of the file indicates macOS-specific setup with
+# references to Darwin (macOS core), frameworks like onnxruntime and webrtc_audio_processing,
+# and macOS-specific libraries (CoreFoundation, CoreAudio).
+#
+# For cross-platform compatibility (Windows/Linux):
+# - You would need to add platform-specific conditional blocks similar to the macOS one
+# - Each platform would need its own library paths, include directories, and linking instructions
+# - Windows would require different library names and potentially MSVC-specific flags
+# - Linux would need its own package finding mechanisms (likely using pkg-config)
+#
+# Currently, this file appears to be macOS-focused and would need significant
+# modifications to work properly on Windows or Linux platforms.
+
+
 cmake_minimum_required(VERSION 3.5)
 project(RealTimeCutVADCXXLibrary)
 
