@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		804CA5BC2D54F4E100D86AC6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804CA5BB2D54F4E100D86AC6 /* CoreFoundation.framework */; };
-		804CA5BE2D54F4EA00D86AC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804CA5BD2D54F4EA00D86AC6 /* Foundation.framework */; };
-		80A33E3B2D6B2A2200E03541 /* webrtc_audio_processing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A33E3A2D6B2A2200E03541 /* webrtc_audio_processing.xcframework */; };
-		80A33E3D2D6B2A3500E03541 /* onnxruntime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A33E3C2D6B2A3500E03541 /* onnxruntime.xcframework */; };
+		0447DFA32DD6B1CD00408590 /* onnxruntime.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A33E3C2D6B2A3500E03541 /* onnxruntime.xcframework */; };
+		0447DFA52DD6B1CF00408590 /* webrtc_audio_processing.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80A33E3A2D6B2A2200E03541 /* webrtc_audio_processing.xcframework */; };
+		0447DFA82DD6B21900408590 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447DFA72DD6B21900408590 /* CoreFoundation.framework */; };
+		0447DFAA2DD6B22800408590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0447DFA92DD6B22800408590 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0447DFA72DD6B21900408590 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		0447DFA92DD6B22800408590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		804CA58B2D54EE8B00D86AC6 /* RealTimeCutVADCXXLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealTimeCutVADCXXLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		804CA5BB2D54F4E100D86AC6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		804CA5BD2D54F4EA00D86AC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		806DAAF42D55D60D00589FD9 /* build_xcframework.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_xcframework.sh; sourceTree = "<group>"; };
 		80A33E3A2D6B2A2200E03541 /* webrtc_audio_processing.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = webrtc_audio_processing.xcframework; path = Frameworks/webrtc_audio_processing.xcframework; sourceTree = "<group>"; };
 		80A33E3C2D6B2A3500E03541 /* onnxruntime.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = onnxruntime.xcframework; path = Frameworks/onnxruntime.xcframework; sourceTree = "<group>"; };
@@ -49,10 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80A33E3D2D6B2A3500E03541 /* onnxruntime.xcframework in Frameworks */,
-				80A33E3B2D6B2A2200E03541 /* webrtc_audio_processing.xcframework in Frameworks */,
-				804CA5BC2D54F4E100D86AC6 /* CoreFoundation.framework in Frameworks */,
-				804CA5BE2D54F4EA00D86AC6 /* Foundation.framework in Frameworks */,
+				0447DFAA2DD6B22800408590 /* Foundation.framework in Frameworks */,
+				0447DFA82DD6B21900408590 /* CoreFoundation.framework in Frameworks */,
+				0447DFA32DD6B1CD00408590 /* onnxruntime.xcframework in Frameworks */,
+				0447DFA52DD6B1CF00408590 /* webrtc_audio_processing.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,10 +80,10 @@
 		804CA5BA2D54F4E100D86AC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0447DFA92DD6B22800408590 /* Foundation.framework */,
+				0447DFA72DD6B21900408590 /* CoreFoundation.framework */,
 				80A33E3C2D6B2A3500E03541 /* onnxruntime.xcframework */,
 				80A33E3A2D6B2A2200E03541 /* webrtc_audio_processing.xcframework */,
-				804CA5BD2D54F4EA00D86AC6 /* Foundation.framework */,
-				804CA5BB2D54F4E100D86AC6 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VBX7WSGEH9;
+				DEVELOPMENT_TEAM = GKDHR6NP9R;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -202,7 +202,7 @@
 				"MODULEMAP_FILE[sdk=*]" = "";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.code-concept.RealTimeCutVADCXXLibrary";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.watchfun.RealTimeCutVADCXXLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = NO;
@@ -220,7 +220,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = VBX7WSGEH9;
+				DEVELOPMENT_TEAM = GKDHR6NP9R;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -238,7 +238,7 @@
 				"MODULEMAP_FILE[sdk=*]" = "";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.code-concept.RealTimeCutVADCXXLibrary";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.watchfun.RealTimeCutVADCXXLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				REGISTER_APP_GROUPS = NO;
 				SKIP_INSTALL = NO;
