@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# プロジェクトとスキーム名
+# 项目和方案名称
 PROJECT_NAME="RealTimeCutVADCXXLibrary"
 SCHEME_NAME="RealTimeCutVADCXXLibrary"
+XCFRAMEWORK_NAME="WQVad"
 BUILD_DIR="./build"
 
-# ビルド用ディレクトリをクリーン
+# 清理构建目录
 rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
 
-# ビルド関数
+# 构建函数
 build_framework() {
     local sdk=$1
     local destination_dir=$2
@@ -23,6 +24,9 @@ build_framework() {
     -configuration Release \
     -derivedDataPath "$destination_dir" \
     BUILD_DIR="$destination_dir" \
+    CODE_SIGN_IDENTITY="" \
+    CODE_SIGNING_REQUIRED=NO \
+    CODE_SIGNING_ALLOWED=NO \
     clean build
 
     FRAMEWORK_PATH="${destination_dir}/${release_dir}/${PROJECT_NAME}.framework"
@@ -30,31 +34,26 @@ build_framework() {
         echo "Error: Failed to build $sdk framework."
         exit 1
     fi
+    
+    # 清理可能导致代码签名问题的文件
+    echo "Cleaning framework..."
+    find "$FRAMEWORK_PATH" -name ".DS_Store" -delete
+    find "$FRAMEWORK_PATH" -name "._*" -delete
+    xattr -cr "$FRAMEWORK_PATH"
 }
 
-# iOSデバイス向けビルド
+# iOS设备构建
 build_framework "iphoneos" "$BUILD_DIR/ios_device" "Release-iphoneos"
 
-# iOSシミュレータ向けビルド
-build_framework "iphonesimulator" "$BUILD_DIR/ios_simulator" "Release-iphonesimulator"
-
-# Mac向けビルド
-build_framework "macosx" "$BUILD_DIR/macos" "Release"
-
-# XCFrameworkの作成
+# 创建XCFramework (仅iOS设备)
 echo "Creating XCFramework..."
 xcodebuild -create-xcframework \
     -framework "$BUILD_DIR/ios_device/Release-iphoneos/${PROJECT_NAME}.framework" \
-    -framework "$BUILD_DIR/ios_simulator/Release-iphonesimulator/${PROJECT_NAME}.framework" \
-    -framework "$BUILD_DIR/macos/Release/${PROJECT_NAME}.framework" \
-    -output "$BUILD_DIR/${PROJECT_NAME}.xcframework"
+    -output "$BUILD_DIR/${XCFRAMEWORK_NAME}.xcframework"
 
-if [ -d "$BUILD_DIR/${PROJECT_NAME}.xcframework" ]; then
-    echo "✅ XCFramework successfully created at $BUILD_DIR/${PROJECT_NAME}.xcframework"
+if [ -d "$BUILD_DIR/${XCFRAMEWORK_NAME}.xcframework" ]; then
+    echo "✅ XCFramework successfully created at $BUILD_DIR/${XCFRAMEWORK_NAME}.xcframework"
 else
     echo "❌ Failed to create XCFramework."
     exit 1
 fi
-
-
-
